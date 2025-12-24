@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Staff Tracker - Button Updated</title>
+    <title>Staff Tracker - Hours on Bars</title>
     <style>
         :root { 
             --primary: #2c3e50; --accent: #3498db; --bg: #f8f9fa; 
@@ -314,7 +314,9 @@
             bar.className = 'shift-bar' + (isActive ? '' : ' inactive-bar');
             bar.style.left = (displayStart / TOTAL_HOURS * 100) + '%';
             bar.style.width = (displayDuration / TOTAL_HOURS * 100) + '%';
-            bar.innerHTML = `<span class="bar-text">${s.initials} (${s.startRaw}-${endStr})${!isActive ? ' [INACTIVE]' : ''}</span>`;
+            
+            // Updated innerHTML to include duration
+            bar.innerHTML = `<span class="bar-text">${s.initials} (${s.startRaw}-${endStr}) (${s.duration}hr)${!isActive ? ' [INACTIVE]' : ''}</span>`;
             
             if (showHandover && handoverPoint >= sOff && handoverPoint < eOff) {
                 const hOver = document.createElement('div');
